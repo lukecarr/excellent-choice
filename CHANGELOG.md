@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="0.1.1"></a>
+## 0.1.1 (2021-11-11)
+
+### Changed
+
+- 🔧 Updated tsconfig [[4da3f0d](https://github.com/lukecarr/excellent-choice/commit/4da3f0db888e7b3f73c7486a72570a21897815ae)]
+- ♻️ Refactored parser [[5f7550d](https://github.com/lukecarr/excellent-choice/commit/5f7550d3dab605ae7efd525183d0dd69285ead21)]
+- ♻️ Refactored textual converter [[2545c4f](https://github.com/lukecarr/excellent-choice/commit/2545c4f236bc0e1abca94bfa992093f5b0ec1ac2)]
+
+### Removed
+
+- 🔥 Removed template file [[acab457](https://github.com/lukecarr/excellent-choice/commit/acab45701254806cc8dc525dd93886c3c3df58d0)]
+
+
 <a name="0.1.0"></a>
 ## 0.1.0 (2021-11-11)
 
