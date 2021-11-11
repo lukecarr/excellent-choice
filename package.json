@@ -1,16 +1,16 @@
 {
-  "name": "ts",
-  "version": "0.0.0",
-  "description": "ts",
+  "name": "excellent-choice",
+  "version": "0.1.0",
+  "description": "Excel-based multi-choice testing",
   "keywords": [
     "typescript",
     "template-repository"
   ],
-  "homepage": "https://github.com/lukecarr/ts#readme",
-  "bugs": "https://github.com/lukecarr/ts/issues",
-  "repository": "lukecarr/ts",
+  "homepage": "https://github.com/lukecarr/excellent-choice#readme",
+  "bugs": "https://github.com/lukecarr/excellent-choice/issues",
+  "repository": "lukecarr/excellent-choice",
   "funding": {
-    "url": "https://github.com/lukecarr/ts#donations"
+    "url": "https://github.com/lukecarr/excellent-choice#donations"
   },
   "license": "MIT",
   "exports": {
