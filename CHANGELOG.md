@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.1.2"></a>
+## 0.1.2 (2021-11-11)
+
+### Miscellaneous
+
+- 🔨 Switched from unbuild to siroc [[099bb1d](https://github.com/lukecarr/excellent-choice/commit/099bb1d95c0f5c9a017623e4365aad4fcf0cd213)]
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2021-11-11)
 
