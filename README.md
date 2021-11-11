@@ -26,19 +26,26 @@ yarn add excellent-choice
 
 ```js
 // ESM / TypeScript
-import { parse } from "excellent-choice";
+import { parse, parseFile } from "excellent-choice";
 
 // or CommonJS
-const { parse } = require("excellent-choice");
+const { parse, parseFile } = require("excellent-choice");
 ```
 
 ### Example Usage
 
-Parse a Uint8Array:
+```js
+// Parse an ArrayBuffer (.xlsx file data)
+const tests = parse(...); 
+// => An object of test name => test questions
+```
+
+Alternatively, you can use `parseFile` to automate the file reading process:
 
 ```js
-const { tests } = parse(...); 
-// => An array of multiple-choice tests
+// Parse an .xlsx file
+const tests = parseFile('your-file.xlsx');
+// => An object of test name => test questions
 ```
 
 ## ⚖ License
