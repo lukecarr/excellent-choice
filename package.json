@@ -13,13 +13,13 @@
     "url": "https://github.com/lukecarr/excellent-choice#donations"
   },
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
-  "sideEffects": false,
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -27,14 +27,17 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "prepack": "yarn build",
+    "build": "siroc build",
     "changelog": "gitmoji-changelog",
-    "yarn lint": "lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint --ext .ts --fix .",
     "lint:prettier": "prettier *.md **/*.md *.json **/*.json --write",
+    "prepack": "yarn build",
     "prepare": "husky install",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "yarn lint": "lint:eslint && yarn lint:prettier"
+  },
+  "dependencies": {
+    "xlsx": "^0.17.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
@@ -46,10 +49,8 @@
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
+    "siroc": "^0.16.0",
     "typescript": "latest",
     "unbuild": "latest"
-  },
-  "dependencies": {
-    "xlsx": "^0.17.3"
   }
 }
