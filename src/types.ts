@@ -1,7 +1,7 @@
 /**
  * A multi-choice question's option.
  */
- export type Alternative = {
+export type Alternative = {
   /**
    * The alternative's text contents.
    */

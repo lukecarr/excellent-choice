@@ -1,6 +1,35 @@
 import type { WorkSheet } from 'xlsx'
 import type { ParseOptions, Question, Alternative } from './types'
-import { shuffle } from './util'
+import { shuffle as shuffleArr } from './util'
+
+/**
+ * Extracts alternatives from a worksheet.
+ *
+ * @param sheet The worksheet to look for alternatives on.
+ * @param cols The columns that contain alternatives.
+ * @param row The row to look for alternatives on.
+ * @param shuffle Whether the alternatives should be shuffled or not.
+ * @returns The array of alternatives.
+ */
+function getAlternatives (sheet: WorkSheet, cols: string[], row: number, shuffle: boolean): Alternative[] {
+  const alternatives = [] as Alternative[]
+
+  for (const c of cols) {
+    const text = sheet[`${c}${row}`]?.v || null
+    if (text === null) {
+      continue
+    }
+
+    alternatives.push({
+      text: text.replace(/^(\*)/, ''),
+      correct: text.startsWith('*')
+    })
+  }
+
+  shuffle && shuffleArr(alternatives)
+
+  return alternatives
+}
 
 /**
  * Parses questions from a WorkSheet from an Excel WorkBook.
@@ -19,20 +48,7 @@ export function parseWorksheet (sheet: WorkSheet, options?: Partial<ParseOptions
       continue
     }
 
-    const alternatives = [] as Alternative[]
-    for (const c of options?.alternativeCols || ['C', 'D', 'E', 'F']) {
-      const text = sheet[`${c}${q}`]?.v || null
-      if (text === null) {
-        continue
-      }
-
-      alternatives.push({
-        text: text.replace(/^(\*)/, ''),
-        correct: text.startsWith('*')
-      })
-    }
-
-    options?.shuffleAlternatives && shuffle(alternatives)
+    const alternatives = getAlternatives(sheet, options?.alternativeCols || ['C', 'D', 'E', 'F'], q, options?.shuffleAlternatives || false)
 
     alternatives.length > 1 && questions.push(afterQuestionParse({
       stem,
@@ -40,7 +56,7 @@ export function parseWorksheet (sheet: WorkSheet, options?: Partial<ParseOptions
     }))
   }
 
-  options?.shuffleQuestions && shuffle(questions)
+  options?.shuffleQuestions && shuffleArr(questions)
 
   return questions
 }

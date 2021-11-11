@@ -2,7 +2,7 @@ import { Question } from './types'
 
 /**
  * Converts a question into a H5P textual file.
- * 
+ *
  * @param question The question to convert.
  * @returns The H5P textual file as a string.
  */
